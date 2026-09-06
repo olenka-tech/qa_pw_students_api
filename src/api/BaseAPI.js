@@ -1,6 +1,6 @@
 import { expect } from '@playwright/test';
 import { testStep } from '../common/helpers/pw';
-import { SUCCESS_CODE } from './constants/responceCodes';
+import { SUCCESS_CODE } from './constants/responseCodes';
 
 export class BaseAPI {
   /**
@@ -50,7 +50,7 @@ export class BaseAPI {
     await this.step(`Assert response body is not empty`, async () => {
       const body = await this.parseBody(response);
 
-      expect(body).not.toBe([]);
+      expect(body.length).toBeGreaterThan(0);
     });
   }
 
